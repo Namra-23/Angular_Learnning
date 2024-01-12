@@ -9,7 +9,7 @@ import { catchError } from 'rxjs/operators';
 })
 export class EmployeeService {
 
-  private _url: string = "./assets/data/employees.json";
+  private _url: string = "https://jsonplaceholder.typicode.com/posts"
 
   constructor(private http: HttpClient) { }
 
