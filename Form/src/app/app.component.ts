@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { FormControl,FormGroup,FormControlName,ReactiveFormsModule } from '@angular/forms';
+import { FormsModule,FormControl,FormGroup,ReactiveFormsModule,Validators } from '@angular/forms';
 import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 
 @Component({
@@ -14,14 +13,17 @@ import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 })
 export class AppComponent {
   title = 'Namra joshi';
-  // userLogin(item:any){
-  //   console.warn(item);
-  // }
-  // loginForm = new FormGroup({
-  //   user : new FormControl('User'),
-  //   password : new FormControl('user123')
-  // });
-  // loginUser(){
-  //   console.warn(this.loginForm.value);
-  // }
+  userLogin(item:any){
+    console.warn(item);
+  }
+  loginForm = new FormGroup({
+    user : new FormControl('',Validators.required),
+    password : new FormControl('')
+  });
+  loginUser(){
+    console.warn(this.loginForm.value);
+  }
+  get user(){
+    return this.loginForm.get('user');
+  }
 }
