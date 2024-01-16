@@ -17,9 +17,6 @@ export class EmployeeDetailComponent {
 
   ngOnInit(){
     this._employeeService.getEmployees()
-      .subscribe
-        (data => this.employees = data,
-        error => this.errorMsg = error
-        );
+      .subscribe(data => this.employees = data);
   }
 }
