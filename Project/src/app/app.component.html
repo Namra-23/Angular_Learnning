@@ -1,3 +1,12 @@
 <h1>Hello world</h1>
+
+<form #colorForm = "ngForm" (ngSubmit)="getColorData(colorForm.value)">
+    <input ngModel type="text" name="color" placeholder="Enter Color...">
+    <br>
+    <br>
+    <input ngModel type="text" name="value" placeholder="Enter color value">
+    <br> <br>
+    <button>Add Color</button>
+</form>
+
 <app-employee-list></app-employee-list>
-<app-employee-detail></app-employee-detail>
