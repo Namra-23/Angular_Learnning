@@ -8,14 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
-  private _url: string = "http://localhost:3000/client";
+  private _url: string = "./assets/data/employees.json";
 
   constructor(private http: HttpClient) { }
 
   getEmployees(): Observable<IEmployee[]> {
     return this.http.get<IEmployee[]>(this._url);
-  }
-  saveColor(data :any){
-    return this.http.post(this._url, data)
   }
 }
