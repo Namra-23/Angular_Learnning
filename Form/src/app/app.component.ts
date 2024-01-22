@@ -13,17 +13,5 @@ import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 })
 export class AppComponent {
   title = 'Namra joshi';
-  userLogin(item:any){
-    console.warn(item);
-  }
-  loginForm = new FormGroup({
-    user : new FormControl('',Validators.required),
-    password : new FormControl('')
-  });
-  loginUser(){
-    console.warn(this.loginForm.value);
-  }
-  get user(){
-    return this.loginForm.get('user');
-  }
+  topics : string[] = ["Angular","React","Next"];
 }

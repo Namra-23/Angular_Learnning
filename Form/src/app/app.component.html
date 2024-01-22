@@ -1,14 +1,49 @@
-<h1>{{title | lowercase}}</h1>
-<!-- <h2>{{20 | usdInr : 72}}</h2> -->
+<div class="container-fluid">
+  <h1>BootCamp Form</h1>
+  <form #userForm="ngForm">
+    {{userForm.value| json}}
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" ngModel name="userName">
+    </div>
 
-<form [formGroup]="loginForm" (ngSubmit)="loginUser()">
-  <p>Name:
-    <input type=" text" placeholder="Enter your name..." name="user" formControlName="user">
-    <span style="color: red;" *ngIf="user && user.invalid && user.touched">This field is not valid</span>
-  </p>
-    <p>Password:
-    <input type="password" placeholder="Enter your password..." name="password" formControlName="password">
-  </p>
-  <button [disabled]="loginForm.invalid">Login</button>
-</form>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" class="form-control" ngModel name="email">
+    </div>
 
+    <div class="form-group">
+      <label>Phone</label>
+      <input type="tel" class="form-control" ngModel name="phone">
+    </div>
+
+    <div class="form-group m-3">
+      <select class="custom-select" ngModel name="topic">
+        <option selected>I am interested in</option>
+        <option *ngFor="let topic of topics">{{topic}}</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label>Time preference</label>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name ="timepreference" value = "morning">
+        <label class="form-check-label">Morning (9AM - 12PM)</label>
+      </div>
+      <div class="form-check">
+        <input type="radio" class="form-check-input" name ="timepreference" value = "evening">
+        <label class="form-check-label">Evening (5PM - 8PM)</label>
+      </div>
+    </div>
+
+    <div class="form-check mb-3">
+      <input type="checkbox" class="from-check-input" ngModel name="subscribe">
+      <label for="" class="form-check-label">
+        Send me promotional offers
+      </label>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit form</button>
+
+  </form>
+</div>
