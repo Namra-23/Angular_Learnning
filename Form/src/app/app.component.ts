@@ -13,5 +13,5 @@ import { UsdInrPipe } from "./pipes/usd-inr.pipe";
 })
 export class AppComponent {
   title = 'Namra joshi';
-  topics : string[] = ["Angular","React","Next","Vue"];
+  topics : string[] = ["Angular","React","Next"];
 }
