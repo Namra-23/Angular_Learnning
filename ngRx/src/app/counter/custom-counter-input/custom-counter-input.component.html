@@ -1,4 +1,8 @@
 <div>
+    <div class="my-3 text-white font-bold text-xl">{{text}}</div>
     <input type="text" [(ngModel)]="value" placeholder="Enter the value" class="bg-gray-50 text-md rounded-lg w-48 h-10" />
     <button class="bg-teal-700 hover:bg-teal-400 text-white font-bold py-2 px-4 rounded-lg mx-3" (click)="onAdd()">Add to Counter</button>
+</div>
+<div class="p-3">
+    <button class="bg-orange-700 hover:bg-orange-400 text-white font-bold py-2 px-4 rounded-lg mx-3" (click)="onChangeText()">Change</button>
 </div>
