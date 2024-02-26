@@ -35,3 +35,9 @@ ng g application host-app --routing
 ng g application mfe-app --routing
 ```
 - There is no node_modules folder inside any of the application which is in projects folder because they use same node_modules folder of parent application.
+
+```
+npm i webpack webpack-cli --save-dev
+ng add @angular-architects/module-federation --project host-app --port 4200
+ng add @angular-architects/module-federation --project mfe-app --port 4300
+```
