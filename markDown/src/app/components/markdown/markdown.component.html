@@ -1,0 +1,6 @@
+<ngx-editor [(ngModel)]="markdownContent" [spellcheck]="true" [config]="editorConfig"></ngx-editor>
+
+<div>
+    <h4>Preview:</h4>
+    <div [innerHtml]="markdownContent | markdown"></div>
+</div>
