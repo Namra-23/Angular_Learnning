@@ -25,3 +25,13 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Create a new micro-fronted application
+
+```
+ng new mono-workspace --create-application=false
+cd mono-workspace
+ng g application host-app --routing
+ng g application mfe-app --routing
+```
+- There is no node_modules folder inside any of the application which is in projects folder because they use same node_modules folder of parent application.
