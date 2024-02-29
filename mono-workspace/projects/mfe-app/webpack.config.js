@@ -11,7 +11,8 @@ sharedMappings.register(
 module.exports = {
   output: {
     uniqueName: "mfeApp",
-    publicPath: "auto"
+    publicPath: "auto",
+    scriptType : "text/javascript",
   },
   optimization: {
     runtimeChunk: false
@@ -29,11 +30,11 @@ module.exports = {
         library: { type: "module" },
 
         // For remotes (please adjust)
-        // name: "mfeApp",
-        // filename: "remoteEntry.js",
-        // exposes: {
-        //     './Component': './projects/mfe-app/src/app/app.component.ts',
-        // },        
+        name: "mfeApp",
+        filename: "remoteEntry.js",
+        exposes: {
+            './TodolistComponent': './projects/mfe-app/src/app/todolist/todolist.component.ts',
+        },        
         
         // For hosts (please adjust)
         // remotes: {
