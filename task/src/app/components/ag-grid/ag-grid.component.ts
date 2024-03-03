@@ -1,33 +1,50 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
 import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-ag-grid',
   standalone: true,
-  imports: [AgGridAngular,AgGridModule],
+  imports: [AgGridAngular, AgGridModule],
   templateUrl: './ag-grid.component.html',
   styleUrl: './ag-grid.component.css'
 })
-export class AgGridComponent {
+export class AgGridComponent implements OnInit {
+  url: string = "https://jsonplaceholder.typicode.com/comments";
+  commentList?: any;
+  constructor(private http: HttpClient) { };
 
-  columnDefs: ColDef[] = [
+  ngOnInit(): void {
+    this.getAlbums();
+  }
+
+  getAlbums() {
+    this.http.get(this.url).subscribe((res) => {
+      this.commentList = res;
+    })
+  }
+
+  colDefs: ColDef[] = [
     {
-      headerName: 'Make', field: 'make', filter: true, editable: true,
-      cellEditor: 'agSelectCellEditor',
-      cellEditorParams: {
-        values: ['Tesla', 'Ford', 'Toyota','Porshe','Mahindra'],
-      },
+      field: "id", headerName: "userId",
+      cellRenderer: (item: any) => {
+        return "Emp-" + item.value;
+      }
     },
-    { headerName: 'Model', field: 'model', editable: true },
-    { headerName: 'Price', field: 'price', },
-    { headerName: 'Type', field: 'type' },
-  ];
-
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000, type: 'SUV' },
-    { make: 'Ford', model: 'Mondeo', price: 32000, type: 'SUV' },
-    { make: 'Porsche', model: 'Boxster', price: 72000, type: 'Sedan' },
-    { make: 'Mahindra', model: 'XUV', price: 42000, type: 'SUV' }
-  ];
+    //If you want to add some custom things into your Column then use cellRenderer ex.(If your current column has only id and you want to do Emp-id then use it)
+    {
+      field: "name", headerName: "Name",
+      cellRenderer: (item: any) => {
+        return "Joshi " + item.value;
+      },
+      filter:true
+    },
+    { field: "email", headerName: "Email" },
+    { field: "body", headerName: "Body" },
+  ]
+  defaultColDef = {
+    flex: 1,
+    minWidth: 100
+  }
 }

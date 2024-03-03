@@ -1,3 +1,7 @@
-<ag-grid-angular style="width: 100vw; height: 50vh;" class="ag-theme-quartz" [rowData]="rowData"
-	[columnDefs]="columnDefs">
-</ag-grid-angular>
+<div class="col-span-1">
+    <div class="row-span-1">
+        <ag-grid-angular class="ag-theme-quartz" style="height: 100vh;width: 100vw;" [rowData]="commentList"
+            [columnDefs]="colDefs" [defaultColDef]="defaultColDef">
+        </ag-grid-angular>
+    </div>
+</div>
