@@ -52,10 +52,10 @@ export class AgGridSearchComponent {
   onSearchClick() {
     const query = this.searchQuery.toLowerCase();
     this.filteredData = this.demoObj.filter(item =>
-      item.docTitle.toLowerCase().includes(query) ||
-      item.docVersion.toLowerCase().includes(query) ||
-      item.docStatus.toLowerCase().includes(query) ||
-      item.docType.toLowerCase().includes(query)
+      item.docTitle.toLowerCase().search(query) !== -1 ||
+      item.docVersion.toLowerCase().search(query) !== -1 ||
+      item.docStatus.toLowerCase().search(query) !== -1 ||
+      item.docType.toLowerCase().search(query) !== -1
     );
   }
 }
