@@ -1,7 +1,9 @@
-<div class="col-span-1">
-    <div class="row-span-1">
-        <ag-grid-angular class="ag-theme-quartz" style="height: 100vh;width: 100vw;" [rowData]="commentList"
-            [columnDefs]="colDefs" [defaultColDef]="defaultColDef">
-        </ag-grid-angular>
-    </div>
+<div>
+    <button (click)="onBtExport()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 my-3 rounded ml-2">
+        Export to Excel
+    </button>
 </div>
+<ag-grid-angular class="ag-theme-quartz" style="height: 100vh;width: 100vw;" [rowData]="commentList"
+    [columnDefs]="colDefs" [defaultColDef]="defaultColDef"
+    (gridReady)="onGridReady($event)">
+</ag-grid-angular>

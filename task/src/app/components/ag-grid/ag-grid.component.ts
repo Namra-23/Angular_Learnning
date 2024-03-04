@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { AgGridAngular, AgGridModule } from 'ag-grid-angular';
-import { ColDef } from 'ag-grid-community';
+import { ColDef, GridApi, GridReadyEvent } from 'ag-grid-community';
+
 
 @Component({
   selector: 'app-ag-grid',
@@ -10,16 +11,15 @@ import { ColDef } from 'ag-grid-community';
   templateUrl: './ag-grid.component.html',
   styleUrl: './ag-grid.component.css'
 })
-export class AgGridComponent implements OnInit {
+export class AgGridComponent {
   url: string = "https://jsonplaceholder.typicode.com/comments";
   commentList?: any;
+  private gridApi!: GridApi<any>;
   constructor(private http: HttpClient) { };
 
-  ngOnInit(): void {
-    this.getAlbums();
-  }
 
-  getAlbums() {
+  onGridReady(params: GridReadyEvent<any>) {
+    this.gridApi = params.api;
     this.http.get(this.url).subscribe((res) => {
       this.commentList = res;
     })
@@ -38,7 +38,7 @@ export class AgGridComponent implements OnInit {
       cellRenderer: (item: any) => {
         return "Joshi " + item.value;
       },
-      filter:true
+      filter: true
     },
     { field: "email", headerName: "Email" },
     { field: "body", headerName: "Body" },
@@ -46,5 +46,10 @@ export class AgGridComponent implements OnInit {
   defaultColDef = {
     flex: 1,
     minWidth: 100
+  }
+
+  //Button for export excel file
+  onBtExport() {
+    this.gridApi.exportDataAsCsv();
   }
 }
