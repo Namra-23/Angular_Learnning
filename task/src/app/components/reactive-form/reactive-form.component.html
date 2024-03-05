@@ -1,0 +1,33 @@
+<div class="flex items-center justify-center h-screen">
+    <form [formGroup]="myForm" (ngSubmit)="onSubmit()"
+        class="max-w-md w-full mx-auto mt-4 p-6 bg-white rounded shadow-md">
+        <div class="mb-4">
+            <label for="docTitle" class="block text-gray-700 text-sm font-bold mb-2">Document Title:</label>
+            <input type="text" id="docTitle" formControlName="docTitle" required
+                class="appearance-none border border-slate-400 rounded w-full py-2 px-3 text-gray-700">
+        </div>
+
+        <div class="mb-4">
+            <label for="docVersion" class="block text-gray-700 text-sm font-bold mb-2">Document Version:</label>
+            <input type="text" id="docVersion" formControlName="docVersion" required
+                class="appearance-none border border-slate-400 rounded w-full py-2 px-3 text-gray-700">
+        </div>
+
+        <div class="mb-4">
+            <label for="docStatus" class="block text-gray-700 text-sm font-bold mb-2">Document Status:</label>
+            <input type="text" id="docStatus" formControlName="docStatus" required
+                class="appearance-none border border-slate-400 rounded w-full py-2 px-3 text-gray-700">
+        </div>
+
+        <div class="mb-4">
+            <label for="docType" class="block text-gray-700 text-sm font-bold mb-2">Document Type:</label>
+            <input type="text" id="docType" formControlName="docType" required
+                class="appearance-none border border-slate-400 rounded w-full py-2 px-3 text-gray-700">
+        </div>
+
+        <button type="submit" [disabled]="!myForm.valid"
+            class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-2"
+            (click)="onReset()">Reset</button>
+    </form>
+</div>
