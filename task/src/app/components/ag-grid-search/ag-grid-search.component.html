@@ -1,9 +1,9 @@
 <div class="d-flex mt-4">
-    <input [(ngModel)]="searchQuery" class="p-2 border border-gray-300 rounded mx-2" type="text" placeholder="Search" aria-label="Search" />
-    <button (click)="onSearchClick()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
+    <input #searchInput class="p-2 border border-gray-300 rounded mx-2" type="text" placeholder="Search" aria-label="Search" />
+    <button (click)="onSearchClick(searchInput.value)" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Search</button>
 </div>
 <div class="mt-5">
     <ag-grid-angular class="ag-theme-quartz" style="height: 80vh; width: 100vw;" [rowData]="filteredData"
-        [columnDefs]="colDefs" [defaultColDef]="defaultColDef">
+        [columnDefs]="colDefs" [defaultColDef]="defaultColDef" (gridReady)="onGridReady($event)">
     </ag-grid-angular>
 </div>
