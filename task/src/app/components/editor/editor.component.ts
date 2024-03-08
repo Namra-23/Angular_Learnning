@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import EditorJS from '@editorjs/editorjs';
 
 @Component({
   selector: 'app-editor',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './editor.component.css'
 })
 export class EditorComponent {
-
+  editor = new EditorJS({ 
+    holder: 'editorjs', 
+    tools: { 
+      // header: Header, 
+      // list: List 
+    }, 
+  })
 }
