@@ -1,0 +1,116 @@
+<div class="pg-inner">
+    <div class="pg-header">
+        <div class="pg-title">
+            <h3>New Paragraph</h3>
+        </div>
+    </div>
+    <div class="pg-content mx-5">
+        <div class="filter-section border-0 ">
+            <form [formGroup]="paragraphForm">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-9">
+                        <div class="form-field">
+                            <div class="form-field-control">
+                                <input id="customerName" type="text" formcontrolname="Customer" placeholder=" "
+                                    class="form-field-input">
+                                <label for="c" class="form-field-label">Title</label>
+                                <div class="form-field-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-field">
+                            <div class="form-field-control ">
+                                <ng-select #resourceNype [items]="gadgets" bindLabel="name" bindValue="name"
+                                    [multiple]="false" placeholder="Parent Paragraph" clearAllText="Clear"
+                                    [selectableGroup]="true" appendTo="body" formControlName="parentParagraph"
+                                    [closeOnSelect]="true" [searchable]="false" [clearable]="false">
+                                </ng-select>
+                                <div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-field">
+                            <div class="form-field-control">
+                                <ng-select #resourceNype [items]="gadgets" bindLabel="name" bindValue="name"
+                                    [multiple]="false" placeholder="Resource Name" clearAllText="Clear"
+                                    [selectableGroup]="true" appendTo="body" formControlName="resourceName"
+                                    [closeOnSelect]="true" [searchable]="false" [clearable]="false">
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-field">
+                            <div class="form-field-control">
+                                <p>version:0</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div class="form-field">
+                            <div class="form-field-control">
+                                <p>Status:Draft</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-9">
+                            <div class="form-field">
+                                <div class="form-field-control">
+                                    <ng-select #resourceNype [items]="gadgets" bindLabel="name" bindValue="name"
+                                        [multiple]="false" placeholder="Select Template" clearAllText="Clear"
+                                        [selectableGroup]="true" appendTo="body" formControlName="template"
+                                        [closeOnSelect]="true" [searchable]="false" [clearable]="false">
+                                    </ng-select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-15">
+                        <div class="form-field">
+                            <div class="form-field-control">
+                                <md-editor name="Content" [height]="'300px'" maxlength="500" showBorder="false"
+                                    [options]="options">
+                                    <div custom-btns class="dropdown">
+                                        <button class="btn btn-sm btn-default" type="button" id="dropdownMenuButton1"
+                                            (click)="toggleDropdown()" data-bs-toggle="dropdown" aria-expanded="false">
+                                            <i class="fas fa-link"></i>
+                                        </button>
+                                        <ul class="dropdown-menu main" aria-labelledby="dropdownMenuButton1">
+                                            <li>
+                                                <a class="dropdown-item" href="#">Paragraph in this document
+                                                    <span>&raquo;</span></a>
+                                                <ul class="dropdown-menu dropdown-submenu">
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">Multi level 1</a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="dropdown-item" href="#">Multi level 2</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a class="dropdown-item" href="#">Other Document</a></li>
+                                        </ul>
+                                    </div>
+
+                                </md-editor>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-auto ms-auto d-inline-flex gap-2">
+                        <button class="btn  btn-outline-primary" (click)="saveAsDraft()">Save as Draft</button>
+                        <button class="btn btn-outline-primary">Save as Final</button>
+                        <button class="btn btn-outline-primary">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
